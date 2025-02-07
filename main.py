@@ -10,6 +10,8 @@ import requests
 def run_command(dsid):
     command = f'openconnect --protocol=nc https://webvpn.nus.edu.sg/stu -i nus -C "DSID={
         dsid}"'
+    if os.environ['NO_DTLS'] == 'true':
+        command += ' --no-dtls'
     return subprocess.Popen(command, shell=True, preexec_fn=os.setsid)
 
 
