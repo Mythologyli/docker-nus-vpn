@@ -57,6 +57,8 @@ def login():
         '<input id="context" type="hidden" name="Context" value="'
     )[1].split('"/>')[0].strip()
 
+    time.sleep(1)
+
     resp = session.post(
         url,
         data={
